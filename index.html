@@ -62,115 +62,33 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-git工具的使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-new-article" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/09/26/git工具的使用/" class="article-date">
-  <time datetime="2018-09-26T06:33:06.621Z" itemprop="datePublished">2018-09-26</time>
+    <a href="/2018/09/26/new-article/" class="article-date">
+  <time datetime="2018-09-26T07:09:48.000Z" itemprop="datePublished">2018-09-26</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p>linus为了维护linux自己写了一个版本管理的工具（Git）</p>
-<p>其他版本控制工具：svn,vss,vcs </p>
-<h2 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h2><p><code>git init</code></p>
-<h2 id="配置个人信息-自报家门"><a href="#配置个人信息-自报家门" class="headerlink" title="配置个人信息(自报家门)"></a>配置个人信息(自报家门)</h2><p><code>$ git config --global user.name &quot;guilaoqi&quot;</code></p>
-<p><code>$ git config --global user.email &quot;593448764@qq.com&quot;</code></p>
-<h2 id="把代码储藏在仓库"><a href="#把代码储藏在仓库" class="headerlink" title="把代码储藏在仓库"></a>把代码储藏在仓库</h2><p>1.把代码放在仓储门口：</p>
-<p><code>git add ./readme.md</code></p>
-<p>2.把仓储门口的代码放到里面房间去(版本库)</p>
-<p><code>git commit -m &quot;我们完成了第一个功能&quot;</code></p>
-<h2 id="查看当前代码状态："><a href="#查看当前代码状态：" class="headerlink" title="查看当前代码状态："></a>查看当前代码状态：</h2><p><code>git status</code>会比较工作区的代码和仓库代码</p>
-<p>如果<code>git add</code>了则以绿色显示不同，如果没有提交，则以红色显示不同；</p>
-<h2 id="对于多个文件"><a href="#对于多个文件" class="headerlink" title="对于多个文件"></a>对于多个文件</h2><p>第一种方式：</p>
-<p><code>git add ./</code></p>
-<p>目录中改动了的文件都会添加</p>
-<p>然后再<code>git commit</code></p>
-<p>第二种方式：</p>
-<p><code>git commit --all -m &quot;一次性直接操作&quot;</code></p>
-<h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><p><code>git log</code></p>
-<p>commit 75d4d9e0d1ba4d4858415d1037ac268838f5b761 (HEAD -&gt; master)<br>Author: guilaoqi <a href="mailto:&#53;&#x39;&#x33;&#x34;&#x34;&#x38;&#55;&#54;&#x34;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;" target="_blank" rel="noopener">&#53;&#x39;&#x33;&#x34;&#x34;&#x38;&#55;&#54;&#x34;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;</a><br>Date:   Tue Sep 25 16:15:19 2018 +0800</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline   //查看简洁版日志</span><br><span class="line">77dc461 (HEAD -&gt; master) 直接一次性提交所有文件2</span><br><span class="line">75d4d9e 直接一次性提交所有文件</span><br><span class="line">41f2df5 我添加了一个md“</span><br></pre></td></tr></table></figure>
-<p><code>git reflog</code></p>
-<p>版本切换记录,可以看到所有提交的版本号</p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard  Head~0 //回退当前(最近一次提交的)</span><br><span class="line">git reset --hard  Head~1 //回退上一个</span><br><span class="line">git reset --hard  75d4d9e // (写上--oneline下显示的commi符也可以退回到对应的版本)</span><br></pre></td></tr></table></figure>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>创建dev分支：</p>
-<p><code>git branch dev</code></p>
-<p>进入分支：</p>
-<p><code>git checkout dev</code></p>
-<p>合并分支（自动合并）</p>
-<p><code>git merge dev</code></p>
-<p>查看当前有哪些分支</p>
-<p><code>git branch</code></p>
-<h2 id="合并分支代码遇到冲突时，手动处理"><a href="#合并分支代码遇到冲突时，手动处理" class="headerlink" title="合并分支代码遇到冲突时，手动处理"></a>合并分支代码遇到冲突时，手动处理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">哈哈2哈3哈哈</span><br><span class="line">=======</span><br><span class="line">哈哈2哈3哈4哈5</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; dev</span><br></pre></td></tr></table></figure>
-<p>head表示当前最新提交，遇到冲突自己手动更改去提交；</p>
-<h2 id="github（当做git服务器来用）"><a href="#github（当做git服务器来用）" class="headerlink" title="github（当做git服务器来用）"></a>github（当做git服务器来用）</h2><p>在github上新建一个仓库，然后记下仓库的https地址；</p>
-<p><code>git push [仓库链接](https://github.com/guilaoqi/test_git.git)  master</code></p>
-<h2 id="从github拿代码"><a href="#从github拿代码" class="headerlink" title="从github拿代码"></a>从github拿代码</h2><p><code>git init</code></p>
-<p><code>git pull [仓库链接](https://github.com/guilaoqi/test_git.git)  master</code></p>
-<p>(会拥有完整的提交记录)，不会直接覆盖，会做合并处理；（一般开发用这个）（<strong>注意，本地要初始一个仓储</strong>）</p>
-<p><code>git clone [仓库链接](https://github.com/guilaoqi/test_git.git)</code></p>
-<p>会得到远程仓库相同的数据，如果多次执行会覆盖本地内容。</p>
-<h2 id="SSH方式上传代码"><a href="#SSH方式上传代码" class="headerlink" title="SSH方式上传代码"></a>SSH方式上传代码</h2><ul>
-<li>公钥和私钥，两者之间是有关联的。</li>
-<li>生成公钥，和私钥。</li>
-<li><ul>
-<li><code>ssh-keygen -t rsa -C &quot;xiaoming@163.com&quot;</code></li>
-<li>在用户目录下，.ssh文件夹中，<code>id_rsa.pub</code>表示公钥，<code>id_rsa</code>表示私钥。</li>
-<li>把公钥粘贴在github》setting》SSH 里面</li>
-</ul>
-</li>
-</ul>
-<p>两个用户的push和pull</p>
-<p>A：添加完内容，进行本地commit，然后push到服务器；</p>
-<p>B：先从远程pull数据，如果有冲突手动解决，然后再修改后push；</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/26/git工具的使用/" data-id="cjmisvvj80000w4tyorcvnm7i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+      <header class="article-header">
+        
   
-</article>
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/26/new-article/">new article</a>
+    </h1>
   
-    <article id="post-hexo的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/26/hexo的使用/" class="article-date">
-  <time datetime="2018-09-26T02:44:15.898Z" itemprop="datePublished">2018-09-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="hexo的使用"><a href="#hexo的使用" class="headerlink" title="hexo的使用"></a>hexo的使用</h1><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g hexo</span><br></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在一个空目录下打开命令行工具，然后进行初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p>在source/_post目录下，创建自己的md文档，使用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<p>将md文件转换成html文件</p>
-<h3 id="本地服务开启"><a href="#本地服务开启" class="headerlink" title="本地服务开启"></a>本地服务开启</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>然后可以在本地浏览器下进行浏览；</p>
-<h3 id="配置github关联"><a href="#配置github关联" class="headerlink" title="配置github关联"></a>配置github关联</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-deployer-git -g</span><br></pre></td></tr></table></figure>
-<h4 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:guilaoqi/guilaoqi.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p><strong>注意： 在“：”后面一定要留有空格！！！</strong></p>
-<h3 id="推送到github命令："><a href="#推送到github命令：" class="headerlink" title="推送到github命令："></a>推送到github命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h4 id="浏览"><a href="#浏览" class="headerlink" title="浏览"></a>浏览</h4><p>对于以上的仓库命名，直接浏览：<a href="https://guilaoqi.github.io/" target="_blank" rel="noopener">https://guilaoqi.github.io/</a></p>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/26/hexo的使用/" data-id="cjmisvvjz0001w4ty3z9x4hb1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/26/new-article/" data-id="cjmita6hk00008ktycp7y2hqt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,11 +129,7 @@
       <ul>
         
           <li>
-            <a href="/2018/09/26/git工具的使用/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/26/hexo的使用/">(no title)</a>
+            <a href="/2018/09/26/new-article/">new article</a>
           </li>
         
       </ul>
